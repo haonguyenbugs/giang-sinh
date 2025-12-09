@@ -7,12 +7,12 @@ const Index = () => {
 
   return (
     <div className="relative w-full h-screen bg-background overflow-hidden">
-      {/* 3D Scene */}
+      
       <div className="absolute inset-0">
         <ChristmasScene onTreeComplete={() => setTreeComplete(true)} />
       </div>
       
-      {/* Text Overlay */}
+      
       <ChristmasOverlay showSubtitle={treeComplete} />
     </div>
   );

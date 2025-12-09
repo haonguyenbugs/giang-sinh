@@ -12,12 +12,12 @@ const ChristmasOverlay = ({ showSubtitle }: ChristmasOverlayProps) => {
   useEffect(() => {
     if (!showSubtitle) return;
 
-    // Sau 5s hiện chữ → đợi 1s → bắt đầu fade-out
+    
     const fadeTimer = setTimeout(() => {
       setVisibleText(false);
     }, 6000);
 
-    // Sau khi fade-out xong (0.8s) → hiện TypingText
+    
     const typingTimer = setTimeout(() => {
       setShowTyping(true);
     }, 6800);
@@ -34,7 +34,7 @@ const ChristmasOverlay = ({ showSubtitle }: ChristmasOverlayProps) => {
 
       <div className="absolute bottom-8 md:bottom-12 text-center">
 
-        {/* Chữ đầu tiên */}
+        
         {visibleText && (
           <p
             className={`
@@ -47,7 +47,7 @@ const ChristmasOverlay = ({ showSubtitle }: ChristmasOverlayProps) => {
           </p>
         )}
 
-        {/* Hiệu ứng typing */}
+        
         {showTyping && (
           <TypingText 
             text="Bạn, giáng sinh vui vẻ và có dáng xinh nhá:P"

@@ -5,7 +5,7 @@ const Ground = memo((props: MeshProps) => {
   return (
     <mesh
       rotation={[-Math.PI / 2, 0, 0]}
-      position={[0, -2.9, 0]}     // nâng mặt đất lên để camera nhìn thấy
+      position={[0, -2.9, 0]}     
       receiveShadow
       {...props}
     >

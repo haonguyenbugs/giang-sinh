@@ -30,14 +30,14 @@ const SnowParticles = () => {
     for (let i = 0; i < count; i++) {
       const i3 = i * 3;
       
-      // Fall down
+      
       pos[i3 + 1] -= velocities[i] * 0.015;
       
-      // Gentle sway
+      
       pos[i3] += Math.sin(time * 0.5 + i * 0.1) * 0.003;
       pos[i3 + 2] += Math.cos(time * 0.3 + i * 0.15) * 0.003;
 
-      // Reset when below ground
+      
       if (pos[i3 + 1] < -6) {
         pos[i3 + 1] = 12;
         pos[i3] = (Math.random() - 0.5) * 25;

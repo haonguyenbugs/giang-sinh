@@ -21,19 +21,19 @@ const ChristmasStar = ({ visible }: ChristmasStarProps) => {
   useFrame(() => {
     if (!meshRef.current || !visible) return;
 
-    // Scale animation (smooth popup effect)
+    
     if (animationStartTime.current) {
       const elapsed = (Date.now() - animationStartTime.current) / 1000;
       const duration = 1;
       
-      // Smooth elastic ease-out
+      
       const elasticOut = (t: number) => {
         const p = 0.4;
         return Math.pow(2, -10 * t) * Math.sin((t - p / 4) * (2 * Math.PI) / p) + 1;
       };
       
       const progress = Math.min(elapsed / duration, 1);
-      const newScale = elasticOut(progress) * 0.6; // Smaller star (0.6 multiplier)
+      const newScale = elasticOut(progress) * 0.6; 
       setScale(newScale);
       meshRef.current.scale.setScalar(newScale);
       if (glowRef.current) {
@@ -41,7 +41,7 @@ const ChristmasStar = ({ visible }: ChristmasStarProps) => {
       }
     }
 
-    // Gentle rotation
+    
     meshRef.current.rotation.y += 0.008;
     meshRef.current.rotation.z = Math.sin(Date.now() * 0.0008) * 0.08;
 
@@ -52,9 +52,9 @@ const ChristmasStar = ({ visible }: ChristmasStarProps) => {
 
   if (!visible) return null;
 
-  // Create star shape - smaller
+  
   const starShape = new THREE.Shape();
-  const outerRadius = 0.35; // Reduced from 0.5
+  const outerRadius = 0.35; 
   const innerRadius = 0.14;
   const spikes = 5;
 
@@ -82,7 +82,7 @@ const ChristmasStar = ({ visible }: ChristmasStarProps) => {
 
   return (
     <group position={[0, 4.2, 0]}>
-      {/* Main star - WHITE */}
+      
       <mesh ref={meshRef} scale={0}>
         <extrudeGeometry args={[starShape, extrudeSettings]} />
         <meshStandardMaterial
@@ -93,7 +93,7 @@ const ChristmasStar = ({ visible }: ChristmasStarProps) => {
           roughness={0.2}
         />
       </mesh>
-      {/* Point light for glow - WHITE */}
+      
       <pointLight
         color="#ffffff"
         intensity={scale * 1.5}

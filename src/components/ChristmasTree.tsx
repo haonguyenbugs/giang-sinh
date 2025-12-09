@@ -11,7 +11,7 @@ const ChristmasTree = ({ onTreeComplete }: ChristmasTreeProps) => {
   const animationStartTime = useRef(Date.now());
   const hasCompleted = useRef(false);
 
-  // Generate more particles for a dense tree
+  
   const { initialPositions, targetPositions, count, sizes } = useMemo(() => {
     const particleCount = 8000;
     const initial = new Float32Array(particleCount * 3);
@@ -21,7 +21,7 @@ const ChristmasTree = ({ onTreeComplete }: ChristmasTreeProps) => {
     for (let i = 0; i < particleCount; i++) {
       const i3 = i * 3;
 
-      // Target: cone in spiral
+      
       const t = i / particleCount;
       const height = t * 5.5 - 1.5;
       const radius = Math.max(0, (1 - t) * 2.8 + 0.05);
@@ -33,7 +33,7 @@ const ChristmasTree = ({ onTreeComplete }: ChristmasTreeProps) => {
       target[i3 + 1] = height;
       target[i3 + 2] = Math.sin(angle) * randomRadius;
 
-      // Initial: tight spiral at bottom
+      
       const startAngle = (i / particleCount) * Math.PI * 6;
       const startRadius = 0.2 + Math.random() * 0.3;
       initial[i3] = Math.cos(startAngle) * startRadius;
@@ -51,7 +51,7 @@ const ChristmasTree = ({ onTreeComplete }: ChristmasTreeProps) => {
     };
   }, []);
 
-  // Tree animation
+  
   useFrame(() => {
     if (!pointsRef.current) return;
 
@@ -101,7 +101,7 @@ const ChristmasTree = ({ onTreeComplete }: ChristmasTreeProps) => {
       positions[i3 + 1] = baseY;
       positions[i3 + 2] = baseZ + Math.sin(transitionAngle) * transitionRadius;
 
-      // Twinkle at end
+      
       if (spiralProgress >= 0.95) {
         const twinkle = Math.sin(time * 2 + i * 0.05) * 0.015;
         positions[i3] += twinkle;
@@ -119,17 +119,17 @@ const ChristmasTree = ({ onTreeComplete }: ChristmasTreeProps) => {
 
   return (
     <>
-      {/* Ground plane */}
+      
       <mesh
         rotation={[-Math.PI / 2, 0, 0]}
-        position={[0, -3.15, 0]} // slightly lower than the particles' base
+        position={[0, -3.15, 0]} 
         receiveShadow
       >
         <planeGeometry args={[12, 12]} />
         <meshStandardMaterial color="#111111" />
       </mesh>
 
-      {/* Christmas tree particles */}
+      
       <points ref={pointsRef}>
         <bufferGeometry>
           <bufferAttribute
@@ -152,7 +152,7 @@ const ChristmasTree = ({ onTreeComplete }: ChristmasTreeProps) => {
             transparent
             opacity={0.95}
             sizeAttenuation
-            depthWrite={false}     // !!! SỬA LỖI CHE MẶT ĐẤT
+            depthWrite={false}     
             blending={THREE.AdditiveBlending}
         />
       </points>

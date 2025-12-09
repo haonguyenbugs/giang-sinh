@@ -11,13 +11,13 @@ const BackgroundParticles = () => {
 
     for (let i = 0; i < particleCount; i++) {
       const i3 = i * 3;
-      // Distribute particles in a sphere around the scene
+      
       const radius = 15 + Math.random() * 25;
       const theta = Math.random() * Math.PI * 2;
       const phi = Math.acos(2 * Math.random() - 1);
       
       pos[i3] = radius * Math.sin(phi) * Math.cos(theta);
-      pos[i3 + 1] = radius * Math.sin(phi) * Math.sin(theta) * 0.5 - 2; // Flatten vertically
+      pos[i3 + 1] = radius * Math.sin(phi) * Math.sin(theta) * 0.5 - 2; 
       pos[i3 + 2] = radius * Math.cos(phi);
     }
 
@@ -27,7 +27,7 @@ const BackgroundParticles = () => {
   useFrame(({ clock }) => {
     if (!pointsRef.current) return;
     
-    // Very slow rotation for ambient effect
+    
     pointsRef.current.rotation.y = clock.getElapsedTime() * 0.02;
     pointsRef.current.rotation.x = Math.sin(clock.getElapsedTime() * 0.01) * 0.1;
   });
