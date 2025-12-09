@@ -23,7 +23,6 @@ const CameraController = () => {
   });
   return null;
 };
-
 interface ChristmasSceneProps {
   onTreeComplete: () => void;
 }
