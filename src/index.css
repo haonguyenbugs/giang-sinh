@@ -1,0 +1,159 @@
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@400;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 0%;
+    --foreground: 0 0% 100%;
+
+    --card: 0 0% 5%;
+    --card-foreground: 0 0% 100%;
+
+    --popover: 0 0% 5%;
+    --popover-foreground: 0 0% 100%;
+
+    --primary: 51 100% 50%;
+    --primary-foreground: 0 0% 0%;
+
+    --secondary: 0 0% 10%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 0 0% 15%;
+    --muted-foreground: 0 0% 70%;
+
+    --accent: 51 100% 50%;
+    --accent-foreground: 0 0% 0%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 0 0% 20%;
+    --input: 0 0% 20%;
+    --ring: 51 100% 50%;
+
+    --radius: 0.5rem;
+
+    /* Christmas theme colors */
+    --christmas-gold: 51 100% 50%;
+    --christmas-gold-glow: 43 100% 70%;
+    --christmas-white: 0 0% 100%;
+    --christmas-snow: 210 50% 98%;
+
+    /* Fonts */
+    --font-display: 'Great Vibes', cursive;
+    --font-heading: 'Playfair Display', serif;
+  }
+
+  .dark {
+    --background: 0 0% 0%;
+    --foreground: 0 0% 100%;
+    --card: 0 0% 5%;
+    --card-foreground: 0 0% 100%;
+    --popover: 0 0% 5%;
+    --popover-foreground: 0 0% 100%;
+    --primary: 51 100% 50%;
+    --primary-foreground: 0 0% 0%;
+    --secondary: 0 0% 10%;
+    --secondary-foreground: 0 0% 100%;
+    --muted: 0 0% 15%;
+    --muted-foreground: 0 0% 70%;
+    --accent: 51 100% 50%;
+    --accent-foreground: 0 0% 0%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 0 0% 20%;
+    --input: 0 0% 20%;
+    --ring: 51 100% 50%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html, body, #root {
+    @apply h-full w-full m-0 p-0 overflow-hidden;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: var(--font-heading);
+  }
+}
+
+@layer components {
+  .christmas-title {
+    font-family: var(--font-display);
+    text-shadow: 
+      0 0 10px hsl(var(--christmas-gold-glow) / 0.8),
+      0 0 20px hsl(var(--christmas-gold-glow) / 0.6),
+      0 0 30px hsl(var(--christmas-gold-glow) / 0.4),
+      0 0 40px hsl(var(--christmas-gold-glow) / 0.2);
+  }
+
+  .christmas-subtitle {
+    font-family: var(--font-heading);
+    text-shadow: 
+      0 0 5px hsl(var(--christmas-white) / 0.5),
+      0 0 10px hsl(var(--christmas-white) / 0.3);
+  }
+
+  .typing-cursor {
+    @apply inline-block w-0.5 h-6 bg-foreground ml-1;
+    animation: blink 1s step-end infinite;
+  }
+}
+
+@layer utilities {
+  .glow-gold {
+    text-shadow: 
+      0 0 10px hsl(var(--christmas-gold-glow) / 0.8),
+      0 0 20px hsl(var(--christmas-gold-glow) / 0.6),
+      0 0 30px hsl(var(--christmas-gold-glow) / 0.4);
+  }
+
+  .glow-white {
+    text-shadow: 
+      0 0 5px hsl(var(--christmas-white) / 0.8),
+      0 0 10px hsl(var(--christmas-white) / 0.5);
+  }
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-in {
+  animation: fadeIn 1.5s ease-out forwards;
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 1s ease-out forwards;
+}
+
+.animation-delay-500 {
+  animation-delay: 500ms;
+}
+
+.animation-delay-1000 {
+  animation-delay: 1000ms;
+}
+
+.animation-delay-2000 {
+  animation-delay: 2000ms;
+}
